@@ -133,6 +133,27 @@ html {
   pointer-events: auto;
 }
 
+/* Card front hint */
+.card-hint {
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  font-size: 0.75rem;
+  opacity: 0.7;
+  text-align: center;
+  pointer-events: none;
+
+  transition: opacity 0.3s ease;
+}
+
+/* Hide when card opens */
+.card.open .card-hint {
+  opacity: 0;
+}
+
+
 /* INSIDE LEFT */
 .card-inside-left {
   position: absolute;
@@ -170,7 +191,7 @@ html {
   transition: opacity 0.6s ease 0s;
   z-index: 2;
   overflow: hidden;
-  font-family: 'Great Vibes', cursive;
+  font-family: 'Lucida Sans Typewriter', cursive;
 }
 
 .card-inside-right h1 {
@@ -330,7 +351,7 @@ html {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  font-family: 'Great Vibes', cursive;
+  font-family: 'Lucida Sans Typewriter', cursive;
 }
 
 /* Shake hint on hover */
@@ -348,6 +369,16 @@ html {
 }
 
 /* CAKE */
+.cake-wrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .cake {
   position: absolute;
   top: 50%;
@@ -378,7 +409,7 @@ html {
 /* Candles */
 .candles {
   position: absolute;
-  top: 6%; /* ⬅️ adjust vertically over emoji */
+  top: -1.5%; /* ⬅️ adjust vertically over emoji */
   left: 50%;
   transform: translateX(-50%);
   display: flex;
@@ -449,11 +480,21 @@ html {
 
 /* Blow button */
 .blow-container {
+  position: fixed;
+  bottom: 24px;                 /* distance from bottom */
+  left: 50%;
+  transform: translateX(-50%);
+  
   display: flex;
-  justify-content: center;
-  width: 100%;
-  opacity: 0;             /* hidden initially */
-  pointer-events: none;   /* prevent clicking when hidden */
+  flex-direction: column;       /* button on top, hint below */
+  align-items: center;
+  gap: 8px;
+
+  width: auto;
+  z-index: 50;
+
+  opacity: 0;                   /* hidden initially */
+  pointer-events: none;
   transition: opacity 0.4s ease;
 }
 
@@ -463,10 +504,11 @@ html {
 }
 
 #cake-hint {
-  margin-top: 10px;      /* space below the envelope */
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   opacity: 0.7;
   text-align: center;
+  max-width: 260px;
+  line-height: 1.3;
 }
 
 #cake-hint.show {
@@ -478,8 +520,7 @@ html {
 }
 
 .blow-btn {
-  /* margin-top: 20px; */
-  padding: 10px 20px;
+  padding: 10px 24px;
   font-size: 1rem;
   border: none;
   border-radius: 20px;
@@ -488,9 +529,6 @@ html {
   cursor: pointer;
   box-shadow: 0 4px 10px rgba(0,0,0,0.2);
   transition: transform 0.2s ease, background 0.2s ease;
-  pointer-events: auto;
-  position: relative;
-  z-index: 999;
 }
 
 /* Sparkle element */
