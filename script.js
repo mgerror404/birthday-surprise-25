@@ -74,30 +74,29 @@ function openCard()
   }, 800); // 800ms = same as card flip duration
 }
 
-// Touch events for mobile
 if (isMobile) {
-  cardFront.addEventListener("click", () => {
+  // Mobile: any tap on cardFront opens the card
+  cardFront.addEventListener('touchend', (e) => {
+    e.preventDefault(); // avoid double-tap zoom / default
     openCard();
   });
-}
+} else {
+  // Desktop: use swipe or click
+  cardFront.addEventListener("mousedown", (e) => {
+    e.preventDefault(); // prevent text/image selection
+    startX = e.clientX;
 
-// Mouse events for desktop
-cardFront.addEventListener("mousedown", (e) => {
-  e.preventDefault(); // prevent text/image selection
-  startX = e.clientX;
-
-  function onMouseUp(e) {
-    if (isMobile) return;
-
-    const endX = e.clientX;
-    if (startX - endX > 50) { // swipe left
-      openCard();
+    function onMouseUp(e) {
+      const endX = e.clientX;
+      if (startX - endX > 50) { // swipe left
+        openCard();
+      }
+      document.removeEventListener("mouseup", onMouseUp);
     }
-    document.removeEventListener("mouseup", onMouseUp);
-  }
 
-  document.addEventListener("mouseup", onMouseUp);
-});
+    document.addEventListener("mouseup", onMouseUp);
+  });
+}
 
 /* Confetti */
 function launchConfetti() {
