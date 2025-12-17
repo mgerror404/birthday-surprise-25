@@ -28,7 +28,7 @@ const yaySound = document.getElementById("yay-sound");
 const kissSound = document.getElementById("kiss-sound");
 const notificationSound = document.getElementById("notification-sound");
 
-// const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
 
 kissPop.classList.add("hidden")
 
@@ -75,21 +75,11 @@ function openCard()
 }
 
 // Touch events for mobile
-cardFront.addEventListener("touchstart", (e) => {
-  e.preventDefault();
-  startX = e.touches[0].clientX;
-  startTime = Date.now();
-}, { passive: false });
-
-cardFront.addEventListener("touchend", (e) => {
-  e.preventDefault();
-  const endX = e.changedTouches[0].clientX;
-  const elapsed = Date.now() - startTime;
-
-  if (startX - endX > 50 && elapsed < 500) {
+if (isMobile) {
+  cardFront.addEventListener("click", () => {
     openCard();
-  }
-}, { passive: false });
+  });
+}
 
 // Mouse events for desktop
 cardFront.addEventListener("mousedown", (e) => {
@@ -97,6 +87,8 @@ cardFront.addEventListener("mousedown", (e) => {
   startX = e.clientX;
 
   function onMouseUp(e) {
+    if (isMobile) return;
+
     const endX = e.clientX;
     if (startX - endX > 50) { // swipe left
       openCard();
