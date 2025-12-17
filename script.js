@@ -70,7 +70,6 @@ function openCard()
   // play music after flip completes
   setTimeout(() => {
     music.play().catch(err => console.log("Music autoplay blocked:", err));
-    note.classList.add("peek");
   }, 800); // 800ms = same as card flip duration
 }
 
@@ -123,9 +122,9 @@ partyPop.addEventListener('click', () => {
   partyPop.classList.add('clicked');
 });
 
-// music.addEventListener("ended", () => {
-//   note.classList.add("peek");
-// });
+music.addEventListener("ended", () => {
+  note.classList.add("peek");
+});
 
 note.addEventListener("click", () => {
   // FIRST CLICK → open note, hide card
@@ -248,4 +247,5 @@ kissPop.addEventListener('click', () => {
   // remove after animation
   setTimeout(() => heart.remove(), 1500);
 });
+
 
