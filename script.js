@@ -76,7 +76,7 @@ function openCard()
 
 if (isMobile) {
   // Mobile: any tap on cardFront opens the card
-  cardFront.addEventListener('touchend', (e) => {
+  cardFront.addEventListener('pointerup', (e) => {
     e.preventDefault(); // avoid double-tap zoom / default
     openCard();
   });
@@ -248,3 +248,4 @@ kissPop.addEventListener('click', () => {
   // remove after animation
   setTimeout(() => heart.remove(), 1500);
 });
+
