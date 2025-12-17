@@ -3,7 +3,7 @@ let cardOpened = false;
 let startX = 0;
 let noteOpened = false;
 let kissCount = 0;
-const maxKiss = 20;
+const maxKiss = 22;
 
 const envelope = document.getElementById("envelope");
 const hint = document.querySelector(".hint");
@@ -48,6 +48,8 @@ envelope.addEventListener("click", () => {
   setTimeout(() => {
     envelope.classList.add("open");
     card.classList.add("show");
+    const cardHint = document.getElementById("cardHint");
+    cardHint?.classList.add("hidden");
   }, 800);
 });
 
