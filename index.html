@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Happy Birthday ❤️</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+<audio id="envelope-sound" src="envelope-open.mp3" preload="auto"></audio>
+<audio id="card-flip-sound" src="card-flip.mp3" preload="auto"></audio>
+<audio id="birthday-music" src="happy-birthday-to-you.mp3" preload="auto"></audio>
+<audio id="note-sound" src="note.mp3" preload="auto"></audio>
+<audio id="yay-sound" src="yay.mp3" preload="auto"></audio>
+<audio id="kiss-sound" src="kissy.mp3" preload="auto"></audio>
+<audio id="notification-sound" src="notification.mp3" preload="auto"></audio>
+
+<!-- Party popper element -->
+<div id="party-pop" style="font-size: 3rem; cursor: pointer; user-select: none; position: fixed; bottom: 20px; left: 20px; z-index: 30;">
+  🎉
+</div>
+
+<!-- Party popper sound -->
+<audio id="pop-sound" src="party-popper.mp3" preload="auto"></audio>
+
+<div class="container" id="container">
+
+  <!-- CARD -->
+  <div class="card" id="card">
+
+    <!-- FRONT COVER -->
+    <div class="card-front" id="cardFront">
+      <h2>💌</h2>
+      <p>Ábreme</p>
+    </div>
+
+    <!-- INSIDE LEFT (blank / decoration) -->
+    <div class="card-inside-left">
+      💖
+    </div>
+
+    <!-- INSIDE RIGHT (message) -->
+    <div class="card-inside-right">
+      <h1>🎉 Feliz Cumpleaños 🎉</h1>
+      <p>
+        Even though we're far apart,<br>
+        you're always in my heart ❤️
+      </p>
+    </div>
+
+  </div>
+
+  <!-- ENVELOPE -->
+  <div class="envelope" id="envelope">
+    <p>Para Marc 🩵</p>
+    <div class="flap" id="flap"></div>
+  </div>
+
+  <div class="hint">Haz click en el sobre 💌</div>
+
+  <!-- PEEKING NOTE -->
+  <div class="note" id="note">
+    <div class="note-content">
+      <p>Nos olvidamos de algo...</p>
+    </div>
+  </div>
+
+  <!-- CAKE -->
+  <div class="cake" id="cake">
+    <div class="cake-body">
+      <div class="candles" id="candles">
+        <div class="candle">
+          <div class="flame"></div>
+          <div class="wick"></div>
+          <div class="candle-body"></div>
+        </div>
+        <div class="candle">
+          <div class="flame"></div>
+          <div class="wick"></div>
+          <div class="candle-body"></div>
+        </div>
+        <div class="candle">
+          <div class="flame"></div>
+          <div class="wick"></div>
+          <div class="candle-body"></div>
+        </div>
+      </div>
+      🎂
+    </div>
+  </div>
+
+  <div class="blow-container">
+    <button class="blow-btn" id="blowBtn">Soplar 💨</button>
+    <div class="cake-hint" id="cake-hint">¡Pide un deseo y sopla las velas!</div>
+  </div>
+
+  <div id="kiss-pop" style="font-size: 3rem; cursor: pointer; user-select: none; position: fixed; bottom: 20px; right: 20px; z-index: 30;">
+    💋
+  </div>
+
+  <!-- Popup Notification -->
+  <div id="kiss-popup">💖 Wow! You really love this! 💖</div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
